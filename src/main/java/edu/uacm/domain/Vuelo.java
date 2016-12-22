@@ -17,8 +17,19 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Vuelo {
 	@Id
+	@javax.persistence.TableGenerator(
+		    name="EMP_GEN",
+		    table="GENERATOR_TABLE",
+		    pkColumnName = "key",
+		    valueColumnName = "hi",
+		    pkColumnValue="EMP",
+		    		initialValue = 10,
+		    	      allocationSize = 100
+		    
+		)
+	
 	@NotNull
-	//@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idvuelo;
 	@NotNull
 	private Date horasalida;

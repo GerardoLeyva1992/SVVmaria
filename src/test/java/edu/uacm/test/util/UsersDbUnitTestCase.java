@@ -35,7 +35,7 @@ public class UsersDbUnitTestCase {
 		//PersonRepository repository = new PersonRepository(dataSource());
 		//Person charlie = repository.findPersonByFirstName("Charlie");
 	
-		Avion a=rp.findOne(1L);
+		//Avion a=rp.findOne(1L);
 		//assertThat(charlie.getFirstName(), is("Charlie"));
 		//assertThat(charlie.getLastName(), is("Brown"));
 		//assertThat(charlie.getAge(), is(42));
