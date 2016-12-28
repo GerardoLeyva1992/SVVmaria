@@ -29,6 +29,8 @@ import edu.uacm.domain.Aeropuerto;
 import edu.uacm.domain.AeropuertoRepository;
 import edu.uacm.domain.Avion;
 import edu.uacm.domain.AvionRepository;
+import edu.uacm.domain.Pasajero;
+import edu.uacm.domain.PasajeroRepository;
 import edu.uacm.domain.Vuelo;
 import edu.uacm.domain.VueloRepository;
 
@@ -43,6 +45,8 @@ public class Application implements CommandLineRunner {
     private AvionRepository AV;
     @Autowired
     private VueloRepository V;
+    @Autowired
+    private PasajeroRepository pg;
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
@@ -50,34 +54,47 @@ public class Application implements CommandLineRunner {
     public void run(String... strings) throws Exception {      
     	log.debug("Entrando a Aeropuerto Insertar");
     	Aeropuerto ae=new Aeropuerto();
-    	//ae.setIdaeropuerto(1l);
-    	ae.setNombreaeropuerto("AeroTexas");
+    	ae.setIdaeropuerto(1l);
+    	ae.setNombreaeropuerto("AeroMexico");
 		ae.setCiudad("Ciudad de Mexico");
 		ae.setPais("Mexico");
 		AR.save(ae);
+		//otro aeropuerto
+    	Aeropuerto ae4=new Aeropuerto();
+    	ae4.setIdaeropuerto(4l);
+    	ae4.setNombreaeropuerto("AeroMadrid");
+		ae4.setCiudad("Madrid");
+		ae4.setPais("España");
+		AR.save(ae4);
 		log.debug("Entrando a Aviones Insertar");
 		Avion av=new Avion();
-		//av.setIdavion(1l);
+		av.setIdavion(1l);
 		av.setModeloavion("x87");
 		av.setCapacidad(40);
 		av.setLineaaerea("LineaExpress");
 		AV.save(av);
 		log.debug("Entrando a Vuelos Insertar");
-		/*
+		
 		Vuelo v=new Vuelo();
+		v.setIdvuelo(100L);
 		SimpleDateFormat parseador = new SimpleDateFormat("dd/MM/yy HH:mm");
 		Date date = parseador.parse("31/03/2016 17:23");
 		Date date2 = parseador.parse("1/04/2016 02:23");
-		v.setIdvuelo(100L);
+		
 		v.setHorallegada(date);
 		v.setHorasalida(date2);
 		v.setAeropuerto_idaeropuerto(1L);
 		v.setAeropuerto_idaeropuerto2(4L);
 		v.setAvion_idavion(1L);
 		V.save(v);
-    */
+		Pasajero p=new Pasajero();
+		p.setIdpasajero(1L);
+		p.setNombre("Gerardo");
+		p.setApellidopaterno("Leyva");
+		p.setApellidomaterno("Teutli");
+		p.setFechanacimiento("23/01/1992");
+		p.setNacionalidad("Mexicana");
+		p.setVuelo_idvuelo(100L);
+		pg.save(p);
     }
-
-
-
 }

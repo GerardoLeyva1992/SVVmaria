@@ -23,11 +23,10 @@ public class Vuelo {
 		    pkColumnName = "key",
 		    valueColumnName = "hi",
 		    pkColumnValue="EMP",
-		    		initialValue = 10,
-		    	      allocationSize = 100
+		    		initialValue = 1,
+		    	      allocationSize = 1000
 		    
 		)
-	
 	@NotNull
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private Long idvuelo;

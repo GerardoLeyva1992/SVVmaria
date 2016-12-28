@@ -1,0 +1,38 @@
+<html layout:decorator="layout">
+    <div layout:fragment="content">
+        <form method="post" name="comment_form" id="comment_form" action="/pasajeros/update" role="form">
+            <div class="form-group">
+                <label for="nombre">Pasajeros</label>
+                <textarea rows="5" class="form-control" id="nombre" name="nombre" th:text="${post.nombre}"/>
+            </div>
+               <div class="form-group">
+                <label for="apellidopaterno">Apellido Paterno</label>
+                <textarea rows="5" class="form-control" id="ap" name="ap" th:text="${post.apellidopaterno}"/>
+            </div>
+              <div class="form-group">
+              <label for="apellidomaterno">Apellido Materno</label>
+                <textarea rows="5" class="form-control" id="am" name="am" th:text="${post.apellidomaterno}"/>
+            </div>
+             <div class="form-group">
+              <label for="fechanacimiento">Fecha de nacimiento</label>
+                <textarea rows="5" class="form-control" id="fn" name="fn" th:text="${post.fechanacimiento}"/>
+            </div>
+             <div class="form-group">
+              <label for="nacionalidad">Nacionalidad</label>
+                <textarea rows="5" class="form-control" id="fn" name="fn" th:text="${post.nacionalidad}"/>
+            </div>
+             <div class="form-group">
+              <label for="vuelo_idvuelo">id de vudelo</label>
+                <textarea rows="5" class="form-control" id="idv" name="idv" th:text="${post.vuelo_idvuelo}"/>
+            </div>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.nombre}"/>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.apellidopaterno}"/>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.apellidomaterno}"/>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.fechanacimiento}"/>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.nacionalidad}"/>
+            <input type="hidden" id="post_idpasajero" rows="5" class="form-control" name="post_idpasajero" th:value="${post.vuelo_idvuelo}"/>
+            
+            <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</html>

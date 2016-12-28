@@ -60,7 +60,7 @@ public class VueloController {
 
     
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView update(@RequestParam("post_idvuelo") long idvuelo,
+    public ModelAndView update(@RequestParam("post_idvuelo") Long idvuelo,
     		@RequestParam("horasalida") Date horasalida,@RequestParam("horallegada") Date horallegada,@RequestParam("aeropuerto_idaeropuerto") Long aeropuerto_idaeropuerto,
     		@RequestParam("aeropuerto_idaeropuerto2") Long aeropuerto_idaeropuerto2,@RequestParam("avion_idavion") Long avion_idavion) {
         Vuelo post = repository.findOne(idvuelo);
@@ -77,7 +77,7 @@ public class VueloController {
     }
 
     @RequestMapping(value = "/{idvuelo}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable long idvuelo,
+    public String edit(@PathVariable Long idvuelo,
                        Model model) {
         Vuelo post = repository.findOne(idvuelo);
         model.addAttribute("post", post);

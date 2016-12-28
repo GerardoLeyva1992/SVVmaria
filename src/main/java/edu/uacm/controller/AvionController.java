@@ -25,7 +25,7 @@ public class AvionController {
     }
 
     @RequestMapping(value = "/{idavion}/delete", method = RequestMethod.GET)
-    public ModelAndView delete(@PathVariable long idavion) {
+    public ModelAndView delete(@PathVariable Long idavion) {
         repository.delete(idavion);
         return new ModelAndView("redirect:/avions");
     }
@@ -38,7 +38,9 @@ public class AvionController {
     //capacidad
     //lineaaerea
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView create(@RequestParam("modeloavion") String modeloavion,@RequestParam("capacidad") int capacidad,@RequestParam("lineaaerea") String lineaaerea) {
+    public ModelAndView create(@RequestParam("modeloavion") String modeloavion,
+    		@RequestParam("capacidad") int capacidad,
+    		@RequestParam("lineaaerea") String lineaaerea) {
         Avion post=new Avion();
         post.setModeloavion(modeloavion);
         post.setCapacidad(capacidad);
@@ -48,7 +50,7 @@ public class AvionController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView update(@RequestParam("post_idavion") long idavion,
+    public ModelAndView update(@RequestParam("post_idavion") Long idavion,
                                @RequestParam("modeloavion") String modeloavion,@RequestParam("capacidad") int capacidad,@RequestParam("lineaaerea") String lineaaerea) {
         Avion post = repository.findOne(idavion);
         String param;
@@ -61,7 +63,7 @@ public class AvionController {
     }
 
     @RequestMapping(value = "/{idavion}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable long idavion,
+    public String edit(@PathVariable Long idavion,
                        Model model) {
         Avion post = repository.findOne(idavion);
         model.addAttribute("post", post);

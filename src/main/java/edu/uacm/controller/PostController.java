@@ -26,7 +26,7 @@ public class PostController {
     }
 
     @RequestMapping(value = "/{idaeropuerto}/delete", method = RequestMethod.GET)
-    public ModelAndView delete(@PathVariable long idaeropuerto) {
+    public ModelAndView delete(@PathVariable Long idaeropuerto) {
         repository.delete(idaeropuerto);
         return new ModelAndView("redirect:/posts");
     }
@@ -37,7 +37,9 @@ public class PostController {
     }
 
     @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public ModelAndView create(@RequestParam("nombreaeropuerto") String nombreaeropuerto,@RequestParam("ciudad") String ciudad,@RequestParam("pais") String pais) {
+    public ModelAndView create(@RequestParam("nombreaeropuerto") String nombreaeropuerto,
+    		@RequestParam("ciudad") String ciudad,
+    		@RequestParam("pais") String pais) {
         Aeropuerto post=new Aeropuerto();
         post.setNombreaeropuerto(nombreaeropuerto);
         post.setCiudad(ciudad);
@@ -47,11 +49,10 @@ public class PostController {
     }
 
     @RequestMapping(value = "/update", method = RequestMethod.POST)
-    public ModelAndView update(@RequestParam("post_idaeropuerto") long idaeropuerto,
-                               @RequestParam("nombreaeropuerto") String nombreaeropuerto,@RequestParam("ciudad") String ciudad,@RequestParam("pais") String pais) {
+    public ModelAndView update(@RequestParam("post_idaeropuerto") Long idaeropuerto,
+                               @RequestParam("nombreaeropuerto") String nombreaeropuerto,
+                               @RequestParam("ciudad") String ciudad,@RequestParam("pais") String pais) {
         Aeropuerto post = repository.findOne(idaeropuerto);
-        String param;
-       // if(@RequestParam("param")==nombreaeropuerto)
         post.setNombreaeropuerto(nombreaeropuerto);
         post.setCiudad(ciudad);
         post.setPais(pais);
@@ -60,7 +61,7 @@ public class PostController {
     }
 
     @RequestMapping(value = "/{idaeropuerto}/edit", method = RequestMethod.GET)
-    public String edit(@PathVariable long idaeropuerto,
+    public String edit(@PathVariable Long idaeropuerto,
                        Model model) {
         Aeropuerto post = repository.findOne(idaeropuerto);
         model.addAttribute("post", post);
